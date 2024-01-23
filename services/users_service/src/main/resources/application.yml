@@ -1,0 +1,17 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: ${DDL_AUTO:update}
+    properties:
+      hibernate:
+        dialect: "org.hibernate.dialect.MySQLDialect"
+  datasource:
+    url: "jdbc:mysql://${MYSQL_HOST:localhost}:3306/${MYSQL_DATABASE:spring_muscu}"
+    username: "root"
+    password: "root"
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  sql:
+    init:
+      platform: "mysql"
+services:
+  auth-url: http://localhost:8081

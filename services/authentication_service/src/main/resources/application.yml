@@ -1,0 +1,10 @@
+server:
+  port: 8081
+
+jwt:
+  expiration-time: 864000000
+  private-key-path: jwt/rsakey.pem
+  public-key-path: jwt/rsapublickey.pem
+
+services:
+  user-url: http://localhost:8080
