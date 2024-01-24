@@ -1,18 +1,18 @@
 version: "3.8"
 
 services:
-  app-auth:
+  service-auth:
     container_name: "service-auth"
-    image: "service-auth:latest"
+    image: "magictruks/service-auth:${IMAGE_TAG}"
     build:
       context: ./services/authentication_service
       dockerfile: Dockerfile
 
     ports:
       - "8081:8081"
-  app-user:
+  service-user:
     container_name: "service-user"
-    image: "service-user:latest"
+    image: "magictruks/service-user:${IMAGE_TAG}"
     depends_on:
       - db-user
     build:

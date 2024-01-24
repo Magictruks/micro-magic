@@ -11,3 +11,9 @@ docker compose up --force-recreate
 mysql -h 127.0.0.1 -P 3306 -u root -p
 CREATE DATATABLE db_name
 docker compose up
+
+
+
+---
+Get projet version
+mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec 2>/dev/null 
