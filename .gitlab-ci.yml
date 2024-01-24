@@ -16,6 +16,8 @@ run_tests:
 build:
   stage: build
   image: maven:3.9.5
+  services:
+    - docker:dind
   before_script:
     - docker login -u $REGISTRY_USER -p $REGISTRY_PASS
   script:
