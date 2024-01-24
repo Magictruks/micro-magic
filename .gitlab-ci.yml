@@ -1,4 +1,4 @@
 run_tests:
-  image: openjdk:17
+  image: maven:3-jdk-17
   script:
     - mvn test
