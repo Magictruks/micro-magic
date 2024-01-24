@@ -4,7 +4,7 @@ services:
   - docker:dind
 
 stages:
-  - test
+#  - test
   - build
 
 run_tests:
@@ -15,9 +15,11 @@ run_tests:
 
 build:
   stage: build
+  image: maven:3.9.5
   before_script:
     - docker login -u $REGISTRY_USER -p $REGISTRY_PASS
   script:
+    - mvn clean package
     - docker-compose build
     - docker-compose push
   only:
