@@ -1,0 +1,4 @@
+run_tests:
+  image: openjdk:17
+  script:
+    - mvn test
