@@ -2,7 +2,8 @@ version: "3.8"
 
 services:
   app-auth:
-    container_name: "app-auth"
+    container_name: "service-auth"
+    image: "service-auth:latest"
     build:
       context: ./services/authentication_service
       dockerfile: Dockerfile
@@ -10,7 +11,8 @@ services:
     ports:
       - "8081:8081"
   app-user:
-    container_name: "app-user"
+    container_name: "service-user"
+    image: "service-user:latest"
     depends_on:
       - db-user
     build:
