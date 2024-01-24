@@ -22,7 +22,8 @@ build:
     - apk add --no-cache maven
     - docker login -u $REGISTRY_USER -p $REGISTRY_PASS
   script:
-    - IMAGE_TAG=$(mvn --non-recursive help:evaluate -Dexpression=project.version | grep -v '\[.*')
+    - IMAGE_TAG=mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec 2>/dev/null
+    - echo $IMAGE_TAG
     - echo "IMAGE_TAG=$IMAGE_TAG" >> .env
     - mvn clean package
     - docker-compose build
