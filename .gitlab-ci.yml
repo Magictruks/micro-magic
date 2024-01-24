@@ -15,10 +15,11 @@ run_tests:
 
 build:
   stage: build
-  image: maven:3.9.5
+  image: docker:20.10.16  # Utilisez une image qui inclut le client Docker
   services:
     - docker:dind
   before_script:
+    - apk add --no-cache maven
     - docker login -u $REGISTRY_USER -p $REGISTRY_PASS
   script:
     - mvn clean package
