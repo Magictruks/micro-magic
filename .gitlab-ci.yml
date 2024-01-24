@@ -1,4 +1,24 @@
+image: tmaier/docker-compose
+
+services:
+  - docker:dind
+
+stages:
+  - test
+  - build
+
 run_tests:
+  stage: test
   image: maven:3.9.5
   script:
     - mvn test
+
+build:
+  stage: build
+  before_script:
+    - docker login -u $REGISTRY_USER -p $REGISTRY_PASS
+  script:
+    - docker-compose build
+    - docker-compose push
+  only:
+    - main
