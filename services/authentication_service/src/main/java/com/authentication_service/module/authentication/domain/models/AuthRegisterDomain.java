@@ -8,4 +8,5 @@ import lombok.experimental.Accessors;
 @Data
 @Accessors(chain = true)
 public class AuthRegisterDomain extends AuthUserDomain {
+    private String password;
 }

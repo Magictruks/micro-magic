@@ -17,7 +17,7 @@ import java.security.GeneralSecurityException;
 public class AuthPublicKeyController {
     private final AuthApplicationToJwt authApplicationToJwt;
     @GetMapping("/public-key")
-    public ResponseEntity<String> getPublicKey() throws GeneralSecurityException, IOException {
+    public ResponseEntity<String> getPublicKey() throws IOException {
         String publicKey = authApplicationToJwt.getPublicKeyForJwt();
         return new ResponseEntity<>(publicKey, HttpStatus.OK);
     }
