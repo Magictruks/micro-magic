@@ -1,4 +1,4 @@
--- SETUP DOCKER
+# SETUP DOCKER
 
 cp .env.docker.example .env.docker
 
@@ -13,7 +13,5 @@ CREATE DATATABLE db_name
 docker compose up
 
 
-
----
-Get projet version
+# Get projet version
 mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec 2>/dev/null 
