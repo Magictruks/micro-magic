@@ -29,7 +29,7 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<Optional<TokenApplication>> login(@RequestBody RegisterRequest request) throws GeneralSecurityException, IOException {
+    public ResponseEntity<Optional<TokenApplication>> register(@RequestBody RegisterRequest request) throws GeneralSecurityException, IOException {
         Optional<TokenApplication> tokenApplication = authApplicationToDomainFacade.registerUser(request);
         return new ResponseEntity<>(tokenApplication, tokenApplication.isEmpty() ? HttpStatus.UNAUTHORIZED : HttpStatus.OK);
     }
