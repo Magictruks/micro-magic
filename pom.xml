@@ -221,4 +221,34 @@
         <module>services/authentication_service</module>
         <module>services/users_service</module>
     </modules>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <spring.profiles.active>dev</spring.profiles.active>
+            </properties>
+            <modules>
+                <module>boilerplates/mongo_crud_service</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <spring.profiles.active>prod</spring.profiles.active>
+            </properties>
+        </profile>
+        <profile>
+            <id>template</id>
+            <properties>
+                <spring.profiles.active>dev</spring.profiles.active>
+            </properties>
+            <modules>
+                <module>boilerplates/mongo_crud_service</module>
+            </modules>
+        </profile>
+    </profiles>
 </project>
