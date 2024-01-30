@@ -1,6 +1,7 @@
 package com.mongo_crud_service.core.interfaces;
 
 import com.mongo_crud_service.core.response.ResponseApi;
+import com.mongo_crud_service.module.entity_name.application.dtos.EntityNameApplicationDto;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,5 +24,5 @@ public interface CrudController<T, C, U> {
     ResponseEntity<ResponseApi<T>> updateOneById(@PathVariable String id, @Valid @RequestBody U body);
 
     @DeleteMapping("/{id}")
-    ResponseEntity<ResponseApi<String>> deleteOneById(@PathVariable String id);
+    ResponseEntity<ResponseApi<EntityNameApplicationDto>> deleteOneById(@PathVariable String id);
 }

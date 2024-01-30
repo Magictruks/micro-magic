@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Map;
@@ -49,8 +50,11 @@ public class EntityNameApplicationCrudController implements CrudController<Entit
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<ResponseApi<String>> deleteOneById(@PathVariable String id) {
+    public ResponseEntity<ResponseApi<EntityNameApplicationDto>> deleteOneById(@PathVariable String id) {
+//        throw new ResponseStatusException(
+//                HttpStatus.NOT_FOUND, "Foo Not Found");
+//
         facade.delete(id);
-        return new ResponseEntity<>(new ResponseApi<>(id), HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(new ResponseApi<>("Is OK"), HttpStatus.OK);
     }
 }
