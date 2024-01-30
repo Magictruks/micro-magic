@@ -6,11 +6,11 @@ import java.util.Optional;
 public interface CrudFacade<T, C, U, Q> {
      List<T> findAll(Q query);
 
-     Optional<T> findOneById(Long id);
+     Optional<T> findOneById(String id);
 
      T create(C dto);
 
-     T update(Long id, U dto);
+     T update(String id, U dto);
 
-     void delete(Long id);
+     void delete(String id);
 }

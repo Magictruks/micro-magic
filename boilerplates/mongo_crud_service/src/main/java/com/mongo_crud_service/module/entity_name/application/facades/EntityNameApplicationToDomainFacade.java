@@ -28,7 +28,7 @@ public class EntityNameApplicationToDomainFacade implements CrudFacade<EntityNam
         return mapper.dtosFromDatas(data);
     }
 
-    public Optional<EntityNameApplicationDto> findOneById(Long id) {
+    public Optional<EntityNameApplicationDto> findOneById(String id) {
         Optional<EntityNameDomainDto> data = domainCrudService.findOneById(id);
         return data.map(mapper::dtoFromData);
     }
@@ -39,13 +39,13 @@ public class EntityNameApplicationToDomainFacade implements CrudFacade<EntityNam
         return mapper.dtoFromData(userDomainCreateDto);
     }
 
-    public EntityNameApplicationDto update(Long id, EntityNameApplicationUpdateDto dto) {
+    public EntityNameApplicationDto update(String id, EntityNameApplicationUpdateDto dto) {
         EntityNameDomainUpdateDto mapperDtoToData = mapper.updateDtoToData(dto);
         EntityNameDomainDto userDomainCreateDto = domainCrudService.update(id, mapperDtoToData);
         return mapper.dtoFromData(userDomainCreateDto);
     }
 
-    public void delete(Long id) {
+    public void delete(String id) {
         domainCrudService.delete(id);
     }
 }

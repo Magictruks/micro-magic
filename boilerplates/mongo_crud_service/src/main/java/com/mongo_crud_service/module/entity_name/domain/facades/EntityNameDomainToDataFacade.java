@@ -31,7 +31,7 @@ public class EntityNameDomainToDataFacade implements CrudFacade<EntityNameDomain
         return mapper.dtosFromDatas(data);
     }
 
-    public Optional<EntityNameDomainDto> findOneById(Long id) {
+    public Optional<EntityNameDomainDto> findOneById(String id) {
         Optional<EntityName> data = crudRepository.findById(id);
         return data.map(mapper::dtoFromData).or(Optional::empty);
     }
@@ -46,7 +46,7 @@ public class EntityNameDomainToDataFacade implements CrudFacade<EntityNameDomain
         return mapper.dtoFromData(save);
     }
 
-    public EntityNameDomainDto update(Long id, EntityNameDomainUpdateDto dto) {
+    public EntityNameDomainDto update(String id, EntityNameDomainUpdateDto dto) {
         Optional<EntityName> userDB = crudRepository.findById(id);
 
         if (userDB.isEmpty()) {
@@ -60,7 +60,7 @@ public class EntityNameDomainToDataFacade implements CrudFacade<EntityNameDomain
         return mapper.dtoFromData(user);
     }
 
-    public void delete(Long id) {
+    public void delete(String id) {
         crudRepository.deleteById(id);
     }
 }

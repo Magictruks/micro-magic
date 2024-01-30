@@ -1,5 +1,6 @@
 package com.mongo_crud_service.core.interfaces;
 
+import com.mongo_crud_service.core.response.ResponseApi;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,17 +11,17 @@ import java.util.Optional;
 
 public interface CrudController<T, C, U> {
     @GetMapping
-    ResponseEntity<List<T>> findAll(Map<String, String> query);
+    ResponseEntity<ResponseApi<List<T>>> findAll(Map<String, String> query);
 
     @GetMapping("/{id}")
-    ResponseEntity<Optional<T>> findOneById(@PathVariable Long id);
+    ResponseEntity<ResponseApi<Optional<T>>> findOneById(@PathVariable String id);
 
     @PostMapping
-    ResponseEntity<T> create(@Valid @RequestBody C body);
+    ResponseEntity<ResponseApi<T>> create(@Valid @RequestBody C body);
 
     @PutMapping("/{id}")
-    ResponseEntity<T> updateOneById(@PathVariable Long id, @Valid @RequestBody U body);
+    ResponseEntity<ResponseApi<T>> updateOneById(@PathVariable String id, @Valid @RequestBody U body);
 
     @DeleteMapping("/{id}")
-    ResponseEntity<String> deleteOneById(@PathVariable Long id);
+    ResponseEntity<ResponseApi<String>> deleteOneById(@PathVariable String id);
 }

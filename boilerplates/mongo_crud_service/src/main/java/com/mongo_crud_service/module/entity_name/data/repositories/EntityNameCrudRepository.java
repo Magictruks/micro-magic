@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.List;
 import java.util.Optional;
 
-public interface EntityNameCrudRepository extends MongoRepository<EntityName, Long> {
+public interface EntityNameCrudRepository extends MongoRepository<EntityName, String> {
     Optional<EntityName> findUserByEmail(String email);
     List<EntityName> findAllByEmail(String email);
 }

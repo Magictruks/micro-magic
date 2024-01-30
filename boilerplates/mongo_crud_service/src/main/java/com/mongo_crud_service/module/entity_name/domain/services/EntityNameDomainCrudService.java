@@ -22,7 +22,7 @@ public class EntityNameDomainCrudService implements EntityNameCrudService {
     }
 
     @Override
-    public Optional<EntityNameDomainDto> findOneById(Long id) {
+    public Optional<EntityNameDomainDto> findOneById(String id) {
         return facade.findOneById(id);
     }
 
@@ -31,12 +31,12 @@ public class EntityNameDomainCrudService implements EntityNameCrudService {
         return facade.create(dto);
     }
     @Override
-    public EntityNameDomainDto update(Long id, EntityNameDomainUpdateDto dto) {
+    public EntityNameDomainDto update(String id, EntityNameDomainUpdateDto dto) {
         return facade.update(id, dto);
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(String id) {
         facade.delete(id);
     }
 }
