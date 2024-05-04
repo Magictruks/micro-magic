@@ -4,13 +4,11 @@ Documentation of micro-magic
 
 ## Prerequisites
 
-We assume that everyone who comes here is **`programmer with intermediate knowledge`** and we also need to understand more before we begin in order to reduce the knowledge gap.
-
-1. Understand [Spring Fundamental], Main Framework. Java Framework
-1. Understand The SOLID Principle and KISS Principle for better write the code.
-2. Understand Microservice Architecture, Clean Architecture, and/or Hexagonal Architecture.
-3. Understand Repository Design Pattern or Data Access Object Design Pattern.
-4. Understanding [Docker][ref-docker].
+- Understand Spring Fundamental, Main Framework. Java Framework
+- Understand The SOLID Principle and KISS Principle for better write the code.
+- Understand Microservice Architecture, Clean Architecture, and/or Hexagonal Architecture.
+- Understand Repository Design Pattern or Data Access Object Design Pattern.
+- Understanding [Docker][ref-docker].
 
 ## Build with
 
